@@ -1,0 +1,124 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  border: 1px solid red;
+  box-sizing: border-box;
+  margin-left: 400px;
+  margin-top: 200px;
+  height: 768px;
+  width: 1336px;
+  font-size: 18px;
+}
+
+header {
+  background-image: linear-gradient(green, white);
+  padding: 30px 40px;
+}
+
+header nav {
+  display: flex;
+  color: white;
+
+}
+
+header nav .students-list-title {
+  margin: 20px 0;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header ul {
+  display: flex;
+  text-decoration: none;
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+header ul li {
+  list-style: none;
+  margin-right: 8px;
+  padding: 8px 16px;
+  border: 2px dotted blue;
+}
+
+header form {
+  font-size: 16px;
+}
+
+header form p {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header form input[type="text"] {
+  padding: 10px;
+  flex: 0 0 75%;
+  border: none;
+}
+
+header form input[type="button"] {
+  flex: 1 0 25%;
+  padding: 10px;
+  border: 1px dashed white;
+  background-color: purple;
+  color: white;
+  border-radius: 3px;
+}
+
+header form input[type="button"]:hover {
+  background-color: peru;
+}
+
+main ul {
+  margin: 0;
+  padding: 0;
+}
+
+main ul li {
+  list-style: none;
+  background-color: skyblue;
+  padding: 12px 8px 12px 40px;
+  display: flex;
+  align-items: center;
+}
+
+main ul li:nth-child(odd) {
+  background-color: pink;
+}
+
+main ul li span {
+  flex: 0 0 92%;
+}
+
+main ul li span::before {
+  display: none;
+  content: '✓';
+}
+
+main ul li input {
+  flex: 1 1 8%;
+  padding: 10px;
+  border: none;
+}
+
+main ul li:hover {
+  background-color: green;
+}
+
+main ul li:hover span {
+  color: white;
+  text-decoration: line-through;
+  position: relative;
+}
+
+main ul li:hover span::before {
+  display: inline-block;
+  position: absolute;
+  left: -25px;
+}
