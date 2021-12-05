@@ -1,0 +1,100 @@
+* {
+    font-family: Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 16px;
+    background: linear-gradient(-100deg, #A2F2F1 0%, #B19AFE 100%);
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    background-color: white;
+    max-width: 32rem;
+    width: 90%;
+    padding: 2.5rem;
+    border-radius: 0.5em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.headings {
+    margin-bottom: 2.8em;
+}
+
+.title, .subtitle {
+    font-weight: normal;
+}
+
+.title {
+    font-size: 2em;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    color: #848694;
+    font-size: 1.4em;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+input.user-info {
+    border: none;
+    flex-basis: 100%;
+    padding: 0.8rem 0;
+    margin-top: 0.8rem;
+    border-bottom: 1.4px solid rgba(30, 51, 216, 0.2);
+}
+
+input.user-info:hover, input.user-info:focus {
+    outline: none;
+    border-bottom: 1.4px solid rgba(30, 51, 216, 1);
+}
+
+input[type="button"] {
+    max-width: 10rem;
+    padding: 0.6rem 3.5rem;
+    margin-top: 3.5rem;
+    background-color: #54BDD6;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+}
+
+input[type="button"]:hover, input[type="button"]:focus {
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+.redirect-btn {
+    align-self: flex-end;
+    margin-top: 1.5rem;
+    margin-right: 1.4rem;
+    color: #1E33D8;
+    text-decoration: none;
+}
+
+.redirect-btn:hover, .redirect-btn:focus {
+    outline: none;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 890px) {
+    main {
+        max-width: 18rem;
+    }
+}
