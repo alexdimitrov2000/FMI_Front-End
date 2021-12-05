@@ -1,0 +1,290 @@
+* {
+    font-family: Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+}
+
+body {
+    font-size: 16px;
+    box-sizing: border-box;
+    background: linear-gradient(-100deg, #A2F2F1 0%, #B19AFE 100%);
+    height: 100vh;
+}
+
+header {
+    background-color: white;
+    padding: 0.4rem 2.5rem;
+}
+
+header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-content h1 {
+    font-size: 2.4rem;
+}
+
+.input-bar {
+    position: relative;
+}
+
+.input-bar input {
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    background-color: #F6F7FD;
+    padding: 0.6em 1.2em;
+}
+
+.header-content .input-bar input {
+    width: 15em;
+}
+
+.input-bar input:hover, .input-bar input:focus {
+    outline: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+.input-bar i {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+main > section {
+    background-color: white;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+main img {
+    border-radius: 50%;
+    width: 5.5rem;
+    height: 5.5rem;
+}
+
+.user-info {
+    max-width: 18rem;
+    
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.user-profile h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.user-activity {
+    padding: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.user-activity span {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.user-activity h5 {
+    color: gray;
+}
+
+.user-activity .count {
+    color: #50BDD6;
+    margin-top: 0.2em;
+}
+
+.user-activity a {
+    text-decoration: none;
+    border: 1px solid #50BDD6;
+    border-radius: 1em;
+    color: #50BDD6;
+    padding: 0.4em;
+    margin-left: auto;
+}
+
+.user-activity a:hover, .user-activity a:focus {
+    border: 1px solid #50BDD6;
+    background-color: #50BDD6;
+    color: white;
+    outline: none;
+}
+
+.comments {
+    max-width: 55rem;
+}
+
+.add-comment {
+    display: flex;
+    align-items: center;
+    color: #50BDD6;
+    padding: 0.4em 1em;
+}
+
+.add-comment img {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.8rem 0 1.2rem;
+}
+
+.add-comment div {
+    flex-grow: 1;
+    display: flex;
+}
+
+.add-comment input {
+    background-color: white;
+    color: #50BDD6;
+    font-weight: bold;
+    margin-right: 0.6rem;
+    flex-grow: 1;
+}
+
+.add-comment input:hover, .add-comment input:focus {
+    border: 0.5px solid #50BDD6;
+}
+
+.add-comment ::placeholder {
+    color: #50BDD6;
+}
+
+.add-comment i {
+    right: 24px;
+}
+
+.comments .comment {
+    display: flex;
+    padding: 1em;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.comments .comment img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 0.6rem 0 1rem;
+}
+
+.comment-content {
+    padding-right: 0.6rem;
+    position: relative;
+}
+
+.comment-content > div {
+    display: flex;
+    align-items: center;
+}
+
+.comment-content > div span, .comment-content > div i {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.comment-content .fa-circle {
+    font-size: 0.3rem;
+    margin: 0 0.4rem;
+}
+
+.comment-content .fa-times {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.comment-content .fa-times:hover {
+    cursor: pointer;
+}
+
+.comment-content p {
+    margin-top: 0.2rem;
+}
+
+.comment-content .interactions {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.interactions div {
+    margin-right: 3rem;
+}
+
+.interactions .likes i:hover {
+    color: rgb(41, 199, 41);
+    cursor: pointer;
+}
+
+.interactions .dislikes i:hover {
+    color: red;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    main img {
+        width: 5.25rem;
+        height: 5.25rem;
+    }
+
+    main > section {
+        width: 90%;
+        margin-right: 0;
+    }
+
+    main .user-info, main .comments {
+        max-width: 22rem;
+    }
+
+    .user-activity {
+        height: 3.75rem;
+    }
+
+    .user-activity h5 {
+        font-size: 0.75rem;
+    }
+
+    .user-activity strong {
+        font-size: 1.125rem;
+    }
+    
+    main .comments {
+        margin: 0;
+    }
+
+    .add-comment {
+        padding: 0.4em 0.6em;
+    }
+
+    .comments .comment {
+        min-height: 7rem;
+        font-size: 0.875rem;
+    }
+
+    .comments .comment img {
+        margin-left: 0.6rem;
+    }
+}
