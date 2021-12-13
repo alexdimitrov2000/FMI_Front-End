@@ -1,0 +1,125 @@
+.line-through {
+    text-decoration: line-through;
+    color: grey;
+}
+
+h1 {
+    text-align: center;
+    font-weight: normal;
+}
+
+#field {
+    width: 320px;
+    height: 48px;
+    padding: 4px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.task-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#task-list {
+    width: 320px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid grey;
+}
+
+#task-list li:not([hidden]) {
+    display: flex;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+li input[type="checkbox"] {
+    position: relative;
+    border-color: transparent;
+}
+
+li input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    border: 1px solid green;
+    z-index: 1;
+    left: -8px;
+    right: -2px;
+    bottom: -5px;
+    top: -5px;
+    background: white;
+    border-radius: 50%;
+}
+
+li input[type="checkbox"]:checked:after {
+    content: "✓";
+    position: absolute;
+    z-index: 2;
+    color: green;
+    left: -1px;
+    top: -1px;
+}
+
+.delete-btn {
+    border: none;
+    background: none;
+    visibility: hidden;
+    color: orange;
+}
+
+li:hover .delete-btn {
+    visibility: visible;
+}
+
+.delete-btn:hover {
+    color: rgb(255, 136, 0);
+}
+
+footer {
+    display: flex;
+    width: 320px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    border: 1px solid grey;
+    border-top: none;
+    padding: 4px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+footer button {
+    border: none;
+    background: none;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+footer button:hover {
+    border: 1px solid red;
+}
+
+* {
+    box-sizing: border-box;
+}

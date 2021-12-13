@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Todo App</title>
+
+  <script src="./src/index.js" type="module"></script>
+  <link href="./src/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+  <section>
+    <header>
+      <h1>todos</h1>
+    </header>
+
+    <main class="task-wrapper">
+      <input id="field" placeholder="Какво ще правиш днес?" />
+
+      <ul id="task-list"></ul>
+    </main>
+
+    <footer>
+      <span class="counter"></span>
+
+      <ul>
+        <li>
+          <button id="filter-all-btn" class="filter-btn active">All</button>
+        </li>
+        <li>
+          <button id="filter-active-btn" class="filter-btn">Active</button>
+        </li>
+        <li>
+          <button id="filter-completed-btn" class="filter-btn">
+            Completed
+          </button>
+        </li>
+      </ul>
+    </footer>
+  </section>
+</body>
+
+</html>
