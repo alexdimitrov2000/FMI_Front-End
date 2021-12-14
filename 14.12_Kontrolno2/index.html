@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+
+  <script src="./script.js" type="module"></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <section class="wrapper">
+    <header class="header flex column">
+      <nav class="action-menu flex ">
+        <li class="menu-item flex h-center v-center close">&times;</li>
+        <li class="menu-item flex h-center v-center min">&minus;</li>
+        <li class="menu-item flex h-center v-center max">&plus;</li>
+      </nav>
+      <input class="input" value="0" />
+    </header>
+
+    <main class="calculator">
+      <div class="action-grid">
+        <button class="action action-btn">C</button>
+        <button class="action action-btn">&#8730;</button>
+        <button class="action action-btn">n<sup>2</sup></button>
+        <button class="action orange">&divide;</button>
+        <button class="action digit">7</button>
+        <button class="action digit">8</button>
+        <button class="action digit">9</button>
+        <button class="action orange">&times;</button>
+        <button class="action digit">4</button>
+        <button class="action digit">5</button>
+        <button class="action digit">6</button>
+        <button class="action orange">&minus;</button>
+        <button class="action digit">1</button>
+        <button class="action digit">2</button>
+        <button class="action digit">3</button>
+        <button class="action orange">&plus;</button>
+        <button class="action zero digit">0</button>
+        <button class="action">.</button>
+        <button class="action orange">=</button>
+      </div>
+    </main>
+  </section>
+
+  <section class="history-wrapper">
+    <header class="flex column h-center v-center">
+      <h1>История на калкулациите</h1>
+      <button class="clear">Изчистване</button>
+    </header>
+
+    <main>
+      <ul class="calculation-list"></ul>
+    </main>
+  </section>
+</body>
+</html>
