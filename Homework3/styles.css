@@ -1,0 +1,142 @@
+:root {
+    --color1: #FFFFFF;
+    --color2: #EAEAEA;
+    --color3: #C4C4C4;
+    --color4: #000000;
+    --fontsize1: 16px;
+    --fontsize2: 32px;
+    --borderradius1: 16px;
+    --borderradius2: 8px;
+    --spacing1: 16px;
+    --spacing2: 8px;
+    --opacity: 0.5;
+    --fontweight1: 700;
+    --fontweight2: 400;
+    --border: 1px solid var(--color4);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--fontsize1);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    margin: 20px auto;
+    width: 900px;
+    border: var(--border);
+    border-radius: var(--borderradius1);
+    overflow: hidden;
+}
+
+.title {
+    font-size: var(--fontsize2);
+    background-color: var(--color2);
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: var(--border);
+    font-weight: var(--fontweight1);
+}
+
+main {
+    padding: 12px;
+}
+
+.filter-buttons {
+    background-color: var(--color1);
+    border: var(--border);
+    border-radius: var(--borderradius2);
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.filter-buttons input {
+    margin-right: 20px;
+    padding: 6px;
+    border: var(--border);
+    border-radius: var(--borderradius2);
+    background-color: var(--color2);
+}
+
+.filter-buttons input::placeholder {
+    color: var(--color4);
+}
+
+ul.meals {
+    width: 100%;
+    border: var(--border);
+    border-radius: var(--borderradius1);
+    font-weight: var(--fontweight1);
+    overflow: hidden;
+    align-items: center;
+}
+
+.meals li {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.meals li:not(:last-child) {
+    border-bottom: var(--border);
+}
+
+.meals li section {
+    display: flex;
+    align-items: center;
+}
+
+.meals li span {
+    margin: 0 15px;
+}
+
+.meals li:nth-child(even) {
+    background-color: var(--color2);
+}
+
+.meals img {
+    width: 50px;
+    height: auto;
+    border-radius: var(--borderradius2);
+}
+
+.meals button.see-more {
+    background-color: var(--color3);
+    border: var(--border);
+    border-radius: var(--borderradius2);
+    padding: 8px 12px;
+    font-weight: var(--fontweight1);
+}
+
+.meals button.see-more:hover,
+.pagination-buttons button:hover:not(:disabled) {
+    background-color: var(--color2);
+    cursor: pointer;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 1.6em;
+}
+
+.pagination-buttons button {
+    background-color: var(--color3);
+    border: var(--border);
+    border-radius: var(--borderradius2);
+    padding: 6px;
+    width: 40px;
+}

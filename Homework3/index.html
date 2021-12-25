@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Meal List</title>
+</head>
+
+<body>
+    <section class="container">
+        <header>
+            <h1 class="title">Meal List</h1>
+        </header>
+        <main>
+            <section class="filter-buttons">
+                <input type="text" placeholder="Filter by name">
+                <input type="text" placeholder="Filter by region">
+                <input type="text" placeholder="Filter by category">
+            </section>
+            <ul class="meals"></ul>
+            <section class="pagination-buttons">
+                <section class="backwards">
+                    <button class="first-page"><i class="fas fa-step-backward"></i></button>
+                    <button class="prev-page"><i class="fas fa-chevron-left"></i></button>
+                </section>
+                <section class="forward">
+                    <button class="next-page"><i class="fas fa-chevron-right"></i></button>
+                    <button class="last-page"><i class="fas fa-step-forward"></i></button>
+                </section>
+            </section>
+        </main>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
