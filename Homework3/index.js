@@ -3,6 +3,7 @@ const firstPageBtn = document.getElementsByClassName("first-page")[0];
 const prevPageBtn = document.getElementsByClassName("prev-page")[0];
 const nextPageBtn = document.getElementsByClassName("next-page")[0];
 const lastPageBtn = document.getElementsByClassName("last-page")[0];
+const pageElementNumbersParag = document.querySelector(".pagination-buttons .page-element-numbers");
 const modal = document.getElementsByClassName("modal")[0];
 const filterButtons = document.querySelectorAll(".filter-buttons input");
 
@@ -132,12 +133,14 @@ function disablePaginationButtons() {
 
 function loadPageMeals() {
     disablePaginationButtons();
-
+    
     if (pageStartElement < 0) {
         pageStartElement = 0;
     }
 
     const lastElem = pageStartElement + 10;
+    pageElementNumbersParag.textContent = `${pageStartElement + 1}-${lastElem}`;
+
     const tenMeals = filteredMeals.slice(pageStartElement, lastElem);
     pageStartElement = lastElem;
     mealsList.innerHTML = "";

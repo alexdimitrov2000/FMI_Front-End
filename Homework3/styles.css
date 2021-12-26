@@ -134,6 +134,7 @@ ul.meals {
 .pagination-buttons {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 12px;
     font-size: 1.6em;
 }
@@ -141,6 +142,10 @@ ul.meals {
 .pagination-buttons button {
     padding: 6px;
     width: 40px;
+}
+
+.pagination-buttons .page-element-numbers {
+    margin: 0;
 }
 
 section.modal {
