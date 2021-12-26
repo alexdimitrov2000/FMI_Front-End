@@ -4,9 +4,7 @@ const prevPageBtn = document.getElementsByClassName("prev-page")[0];
 const nextPageBtn = document.getElementsByClassName("next-page")[0];
 const lastPageBtn = document.getElementsByClassName("last-page")[0];
 const modal = document.getElementsByClassName("modal")[0];
-const nameFilterInput = document.getElementById("name-filter");
-const regionFilterInput = document.getElementById("region-filter");
-const categoryFilterInput = document.getElementById("category-filter");
+const filterButtons = document.querySelectorAll(".filter-buttons input");
 
 let meals = [];
 let filteredMeals = [];
@@ -23,6 +21,7 @@ async function getData() {
     return data;
 }
 
+//#region filtration
 function filterMeals() {
     filteredMeals = meals
             .filter(m => m.name.toLowerCase().startsWith(nameFilterValue) && 
@@ -35,23 +34,26 @@ function filterMeals() {
     loadPageMeals();
 }
 
-nameFilterInput.addEventListener("change", e => {
-    nameFilterValue = e.target.value.toLowerCase();
+// add event listener to the filter buttons
+(() => {
+    filterButtons.forEach(b => b.addEventListener("change", e => {
+        const filterValue = e.target.value.toLowerCase();
+        switch(e.target.id) {
+            case "name-filter":
+                nameFilterValue = filterValue;
+                break;
+            case "region-filter":
+                regionFilterValue = filterValue;
+                break;
+            case "category-filter":
+                categoryFilterValue = filterValue;
+                break;
+        }
 
-    filterMeals();
-});
-
-regionFilterInput.addEventListener("change", e => {
-    regionFilterValue = e.target.value.toLowerCase();
-
-    filterMeals();
-});
-
-categoryFilterInput.addEventListener("change", e => {
-    categoryFilterValue = e.target.value.toLowerCase();
-
-    filterMeals();
-})
+        filterMeals();
+    }));
+})();
+//#endregion
 
 //#region pagination buttons events
 firstPageBtn.addEventListener("click", e => {
