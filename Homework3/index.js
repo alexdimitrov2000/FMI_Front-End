@@ -4,11 +4,16 @@ const prevPageBtn = document.getElementsByClassName("prev-page")[0];
 const nextPageBtn = document.getElementsByClassName("next-page")[0];
 const lastPageBtn = document.getElementsByClassName("last-page")[0];
 const modal = document.getElementsByClassName("modal")[0];
+const nameFilterInput = document.getElementById("name-filter");
+const regionFilterInput = document.getElementById("region-filter");
+const categoryFilterInput = document.getElementById("category-filter");
 
 let meals = [];
-let categories = [];
-let regions = [];
+let filteredMeals = [];
 let pageStartElement = 0;
+let nameFilterValue = "";
+let regionFilterValue = "";
+let categoryFilterValue = "";
 
 async function getData() {
     const response = await fetch("https://api.npoint.io/51ed846bdd74ff693d7e");
@@ -16,6 +21,22 @@ async function getData() {
 
     return data;
 }
+
+function filterMeals() {
+    filteredMeals = meals
+            .filter(m => m.name.toLowerCase().startsWith(nameFilterValue) && 
+                         m.category.toLowerCase().startsWith(categoryFilterValue) &&
+                         m.region.toLowerCase().startsWith(regionFilterValue));
+
+    pageStartElement = 0;
+    loadPageMeals();
+}
+
+nameFilterInput.addEventListener("change", e => {
+    nameFilterValue = (e.target.value).toString().toLowerCase();
+
+    filterMeals();
+});
 
 //#region pagination buttons events
 firstPageBtn.addEventListener("click", e => {
@@ -92,10 +113,11 @@ function createCategoryRecipeSection(meal) {
 }
 
 function disablePaginationButtons() {
+    const lastPageStartElement = filteredMeals.length - (filteredMeals.length % 10);
     firstPageBtn.toggleAttribute("disabled", pageStartElement === 0);
     prevPageBtn.toggleAttribute("disabled", pageStartElement === 0);
-    nextPageBtn.toggleAttribute("disabled", pageStartElement === 280);
-    lastPageBtn.toggleAttribute("disabled", pageStartElement === 280);
+    nextPageBtn.toggleAttribute("disabled", pageStartElement === lastPageStartElement);
+    lastPageBtn.toggleAttribute("disabled", pageStartElement === lastPageStartElement);
 }
 
 function loadPageMeals() {
@@ -106,7 +128,7 @@ function loadPageMeals() {
     }
 
     const lastElem = pageStartElement + 10;
-    const tenMeals = meals.slice(pageStartElement, lastElem);
+    const tenMeals = filteredMeals.slice(pageStartElement, lastElem);
     pageStartElement = lastElem;
     mealsList.innerHTML = "";
     
@@ -124,8 +146,7 @@ function loadPageMeals() {
 
 getData().then(data => {
     meals = data.meals;
-    categories = data.categories;
-    regions = data.regions;
+    filteredMeals = meals;
 
     loadPageMeals();
 });
