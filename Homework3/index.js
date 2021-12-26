@@ -11,6 +11,7 @@ const categoryFilterInput = document.getElementById("category-filter");
 let meals = [];
 let filteredMeals = [];
 let pageStartElement = 0;
+let lastPageStartElement = 0;
 let nameFilterValue = "";
 let regionFilterValue = "";
 let categoryFilterValue = "";
@@ -29,11 +30,19 @@ function filterMeals() {
                          m.region.toLowerCase().startsWith(regionFilterValue));
 
     pageStartElement = 0;
+    lastPageStartElement = filteredMeals.length - (filteredMeals.length % 10);
+
     loadPageMeals();
 }
 
 nameFilterInput.addEventListener("change", e => {
-    nameFilterValue = (e.target.value).toString().toLowerCase();
+    nameFilterValue = e.target.value.toLowerCase();
+
+    filterMeals();
+});
+
+regionFilterInput.addEventListener("change", e => {
+    regionFilterValue = e.target.value.toLowerCase();
 
     filterMeals();
 });
@@ -56,13 +65,7 @@ nextPageBtn.addEventListener("click", e => {
 });
 
 lastPageBtn.addEventListener("click", e => {
-    let mealsCnt = meals.length;
-
-    while (mealsCnt % 10 !== 0) {
-        mealsCnt--;
-    }
-
-    pageStartElement = mealsCnt;
+    pageStartElement = lastPageStartElement;
 
     loadPageMeals();
 });
@@ -113,7 +116,6 @@ function createCategoryRecipeSection(meal) {
 }
 
 function disablePaginationButtons() {
-    const lastPageStartElement = filteredMeals.length - (filteredMeals.length % 10);
     firstPageBtn.toggleAttribute("disabled", pageStartElement === 0);
     prevPageBtn.toggleAttribute("disabled", pageStartElement === 0);
     nextPageBtn.toggleAttribute("disabled", pageStartElement === lastPageStartElement);
@@ -147,6 +149,7 @@ function loadPageMeals() {
 getData().then(data => {
     meals = data.meals;
     filteredMeals = meals;
+    lastPageStartElement = filteredMeals.length - (filteredMeals.length % 10);
 
     loadPageMeals();
 });
