@@ -47,6 +47,12 @@ regionFilterInput.addEventListener("change", e => {
     filterMeals();
 });
 
+categoryFilterInput.addEventListener("change", e => {
+    categoryFilterValue = e.target.value.toLowerCase();
+
+    filterMeals();
+})
+
 //#region pagination buttons events
 firstPageBtn.addEventListener("click", e => {
     pageStartElement = 0;
