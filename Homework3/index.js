@@ -24,7 +24,7 @@ async function getData() {
 //#region filtration
 function filterMeals() {
     filteredMeals = meals
-            .filter(m => m.name.toLowerCase().startsWith(nameFilterValue) && 
+            .filter(m => m.name.toLowerCase().includes(nameFilterValue) && 
                          m.category.toLowerCase().startsWith(categoryFilterValue) &&
                          m.region.toLowerCase().startsWith(regionFilterValue));
 
