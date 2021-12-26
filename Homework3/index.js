@@ -3,6 +3,7 @@ const firstPageBtn = document.getElementsByClassName("first-page")[0];
 const prevPageBtn = document.getElementsByClassName("prev-page")[0];
 const nextPageBtn = document.getElementsByClassName("next-page")[0];
 const lastPageBtn = document.getElementsByClassName("last-page")[0];
+const modal = document.getElementsByClassName("modal")[0];
 
 let meals = [];
 let categories = [];
@@ -59,6 +60,19 @@ function createImageNameSection(meal) {
     return imageNameSection;
 }
 
+modal.getElementsByClassName("close-recipe")[0].addEventListener("click", e => {
+    modal.style.display = "none";
+});
+
+function addEventListenerToRecipeButton(button, meal) {
+    button.addEventListener("click", e => {
+        modal.style.display = "block";
+        modal.getElementsByClassName("title")[0].textContent = meal.name;
+        modal.querySelector("main img").src = meal.image;
+        modal.querySelector("main .meal-instructions").textContent = meal.instruction;
+    });
+}
+
 function createCategoryRecipeSection(meal) {
     const categoryRecipeSection = document.createElement("section");
 
@@ -68,6 +82,8 @@ function createCategoryRecipeSection(meal) {
     const recipeButton = document.createElement("button");
     recipeButton.classList.add("see-more");
     recipeButton.textContent = "See recipe";
+
+    addEventListenerToRecipeButton(recipeButton, meal);
     
     categoryRecipeSection.appendChild(categoryRegionSpan);
     categoryRecipeSection.appendChild(recipeButton);

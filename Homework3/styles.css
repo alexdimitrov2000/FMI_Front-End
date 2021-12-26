@@ -29,7 +29,14 @@ li {
     list-style: none;
 }
 
-.container {
+button {
+    background-color: var(--color3);
+    border: var(--border);
+    border-radius: var(--borderradius2);
+}
+
+.container,
+.dialog-container {
     margin: 20px auto;
     width: 900px;
     border: var(--border);
@@ -113,15 +120,13 @@ ul.meals {
 }
 
 .meals button.see-more {
-    background-color: var(--color3);
-    border: var(--border);
-    border-radius: var(--borderradius2);
     padding: 8px 12px;
     font-weight: var(--fontweight1);
 }
 
 .meals button.see-more:hover,
-.pagination-buttons button:hover:not(:disabled) {
+.pagination-buttons button:hover:not(:disabled),
+.close-recipe:hover {
     background-color: var(--color2);
     cursor: pointer;
 }
@@ -134,9 +139,138 @@ ul.meals {
 }
 
 .pagination-buttons button {
-    background-color: var(--color3);
-    border: var(--border);
-    border-radius: var(--borderradius2);
     padding: 6px;
     width: 40px;
+}
+
+section.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, var(--opacity));
+}
+
+#dialog {
+    position: relative;
+    background-color: var(--color1);
+    margin: auto;
+    padding: 0;
+}
+
+.dialog-container {
+    margin: 30px auto;
+    width: 850px;
+    text-align: center;
+}
+
+.dialog-container main img {
+    width: 310px;
+    height: auto;
+}
+
+.dialog-container table,
+.dialog-container th,
+.dialog-container td {
+    border: var(--border);
+}
+
+.dialog-container table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border-radius: var(--borderradius1);
+}
+
+.dialog-container table tr:not(:last-child) {
+    border-bottom: var(--border);
+}
+
+.dialog-container table td:first-child,
+.dialog-container table th:first-child {
+    border-right: var(--border);
+}
+
+.dialog-container .ingredients {
+    display: grid;
+    grid-template-columns: auto auto;
+    border: var(--border);
+    border-radius: var(--borderradius2);
+}
+
+.ingredients .heading {
+    background-color: var(--color3);
+    font-weight: var(--fontweight1);
+}
+
+.ingredients p {
+    background-color: var(--color2);
+    padding: 5px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 180px 180px;
+    width: 360px;
+    margin-left: 0;
+    padding-left: 0;
+    border: 1px solid rgb(0, 0, 0);
+    list-style-type: none;
+}
+
+.list li {
+    width: 180px;
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+}
+
+.list li span {
+    display: block;
+    padding: 6px 9px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.list li span.category {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.dialog-container ul li {
+    display: grid;
+}
+
+/* .dialog-container ul {
+    border: var(--border);
+    border-radius: var(--borderradius2);
+    overflow: hidden;
+}
+
+.dialog-container li:first-child {
+    background-color: var(--color3);
+    font-weight: var(--fontweight1);
+}
+
+.dialog-container li {
+    background-color: var(--color2);
+    padding: 5px;
+    border-bottom: var(--border);
+}
+
+.dialog-container li span:first-of-type {
+    border-right: var(--border);
+} */
+
+.dialog-container footer {
+    background-color: var(--color2);
+    border-top: var(--border);
+    padding: 10px;
+}
+
+.dialog-container .close-recipe {
+    padding: 10px 14px;
+    font-weight: var(--fontweight1);
 }
