@@ -6,6 +6,7 @@ const lastPageBtn = document.getElementsByClassName("last-page")[0];
 const pageElementNumbersParag = document.querySelector(".pagination-buttons .page-element-numbers");
 const modal = document.getElementsByClassName("modal")[0];
 const filterButtons = document.querySelectorAll(".filter-buttons input");
+const ingredientsTable = document.querySelector(".dialog-container table tbody");
 
 let meals = [];
 let filteredMeals = [];
@@ -100,9 +101,17 @@ modal.getElementsByClassName("close-recipe")[0].addEventListener("click", e => {
 function addEventListenerToRecipeButton(button, meal) {
     button.addEventListener("click", e => {
         modal.style.display = "block";
+        modal.querySelector("main").scrollTo(0, 0);
+       
         modal.getElementsByClassName("title")[0].textContent = meal.name;
         modal.querySelector("main img").src = meal.image;
         modal.querySelector("main .meal-instructions").textContent = meal.instruction;
+
+        const ingredients = meal.ingredients;
+        for (let ingredient of ingredients) {
+            const tableRow = `<tr><td>${ingredient.name}</td><td>${ingredient.measure}</td></tr>`;
+            ingredientsTable.insertAdjacentHTML("beforeend", tableRow);
+        }
     });
 }
 
